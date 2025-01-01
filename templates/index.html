@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Prediction and Evaluation</title>
+   <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <h1>Model Prediction and Evaluation</h1>
+    
+    <form method="POST" action="/predict">
+      <div>
+        
+        <label for="model">Choose a model:</label>
+        <select id="model" name="model" required>
+            <option value="rf">Random Forest</option>
+            <option value="svm">Support Vector Machine</option>
+            <option value="xgb">XGBoost</option>
+            <option value="lstm">LSTM</option>
+            <option value="transformer">Transformer</option>
+        </select><br><br>
+      </div>
+
+<div id="inputForm">
+
+        <!-- <h3>Enter Data:</h3> -->
+<div>
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" required>
+</div>
+        <div>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" required>
+        </div>
+        <div>
+        <label for="depth">Depth:</label>
+        <input type="text" id="depth" name="depth" required>
+        </div>
+        <div>
+        <label for="mag">Magnitude:</label>
+        <input type="text" id="mag" name="mag" required>
+        </div>
+        <div>
+        <label for="nst">NST:</label>
+        <input type="text" id="nst" name="nst" required>
+        </div>
+        <div>
+        <label for="gap">Gap:</label>
+        <input type="text" id="gap" name="gap" required>
+        </div>
+        <div>
+        <label for="dmin">Dmin:</label>
+        <input type="text" id="dmin" name="dmin" required>
+        </div>
+        <div>
+        <label for="rms">RMS:</label>
+        <input type="text" id="rms" name="rms" required>
+        </div>
+        <div>
+        <label for="horizontalError">Horizontal Error:</label>
+        <input type="text" id="horizontalError" name="horizontalError" required>
+        </div>
+        <div>
+        <label for="depthError">Depth Error:</label>
+        <input type="text" id="depthError" name="depthError" required>
+        </div>
+        <div>
+        <label for="magError">Magnitude Error:</label>
+        <input type="text" id="magError" name="magError" required>
+        </div>
+        <div>
+        <label for="magNst">Magnitude NST:</label>
+        <input type="text" id="magNst" name="magNst" required>
+        </div>
+        <div>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required>
+        </div>
+        <div>
+        <label for="month">Month:</label>
+        <input type="text" id="month" name="month" required>
+        </div>
+        <div>
+        <label for="day">Day:</label>
+        <input type="text" id="day" name="day" required>
+        </div>
+        <div>
+        <label for="hour">Hour:</label>
+       
+        <input type="text" id="hour" name="hour" required>
+      </div>
+    </div>
+<br><br>
+        <button type="submit">Submit</button>
+
+        <br><br>
+  
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
