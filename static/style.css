@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Styles */
+#inputForm {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  transition: transform 0.3s ease;
+}
+
+form:hover {
+  transform: scale(1.02);
+}
+
+label {
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+
+
+input, select {
+  width: 80%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.1em;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+button {
+  background-color: #00f7ff; /* Blue background */
+  color: #000000; /* White text */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Pointer cursor on hover */
+  padding: 10px 20px; /* Add padding to make the button more clickable */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners for a more modern look */
+  font-size: 16px; /* Adjust font size */
+  grid-column: span 2; /* Make the button span across two columns in grid layout */
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+button:hover {
+  background-color: #11cba0;
+}
+
+input:focus, select:focus {
+  border: 2px solid #2575fc;
+  outline: none;
+}
+
+/* Error Message */
+.error {
+  color: #ff4d4d;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+/* Result Page Styles */
+.metrics-section {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+  width: 80%;
+  max-width: 900px;
+}
+
+.metrics-section h3 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #f1f1f1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+th {
+  background-color: #2575fc;
+  color: #fff;
+}
+
+td {
+  background-color: #333;
+  color: #fff;
+}
+
+tr:nth-child(even) td {
+  background-color: #444;
+}
+
+tr:hover td {
+  background-color: #6a11cb;
+}
+
+/* Links */
+a {
+  color: #2575fc;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-top: 20px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #6a11cb;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  h1 {
+      font-size: 2em;
+  }
+
+  form, .metrics-section {
+      width: 90%;
+      padding: 15px;
+  }
+
+  input, select, button {
+      padding: 10px;
+  }
+
+  table th, table td {
+      font-size: 1em;
+  }
+
+  /* Adjust form grid for small screens */
+  form {
+    grid-template-columns: 1fr; /* Single column layout on smaller screens */
+  }
+}

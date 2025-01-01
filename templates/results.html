@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+<body>
+    <h1>Prediction Results</h1>
+
+    {% if result %}
+        <div class="metrics-section">
+            <p><strong>Selected Model:</strong> {{ result['Selected Model'] }}</p>
+            <p><strong>Prediction:</strong> {{ result['Prediction'] }}</p>
+            {% if result['Evaluation Metrics']['Classification Report'] %}
+            <h3>Evaluation Metrics:</h3>
+            <p><strong>Accuracy:</strong> {{ result['Evaluation Metrics']['Accuracy'] }}</p>
+
+            <h3>Confusion Matrix:</h3>
+            <table>
+                {% for row in result['Evaluation Metrics']['Confusion Matrix'] %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            <h3>Classification Report:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-Score</th>
+                        <th>Support</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for label, metrics in result['Evaluation Metrics']['Classification Report'].items() %}
+                        {% if label != 'accuracy' %}
+                            <tr>
+                                <td>{{ label }}</td>
+                                <td>{{ metrics['precision'] }}</td>
+                                <td>{{ metrics['recall'] }}</td>
+                                <td>{{ metrics['f1-score'] }}</td>
+                                <td>{{ metrics['support'] }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        
+        </div>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
